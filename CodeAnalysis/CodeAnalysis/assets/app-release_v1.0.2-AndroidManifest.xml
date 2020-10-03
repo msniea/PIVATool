@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.sepidarsystem.mobiledistribution" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="@string/app_title" android:name="com.sepidarsystem.mobiledistribution.DistApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:name="com.sepidarsystem.mobiledistribution.intro.ServerQrReaderActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.sepidarsystem.mobiledistribution.intro.RegisterDeviceActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sepidarsystem.mobiledistribution.main.MainActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/app_title" android:name="com.sepidarsystem.mobiledistribution.customer.list.CustomerListActivity"/>
+        <activity android:name="com.sepidarsystem.mobiledistribution.map.LocationPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/register_and_edit_customer" android:name="com.sepidarsystem.mobiledistribution.customer.registerandedit.CustomerRegisterAndEditActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/order" android:name="com.sepidarsystem.mobiledistribution.salesdoc.order.OrderActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/return_request" android:name="com.sepidarsystem.mobiledistribution.salesdoc.returninvoice.ReturnInvoiceRequestActivity"/>
+        <activity android:name="com.sepidarsystem.mobiledistribution.login.LoginActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sepidarsystem.mobiledistribution.intro.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/catalog" android:name="com.sepidarsystem.mobiledistribution.catalog.CatalogActivity" android:theme="@style/CatalogTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/filter" android:name="com.sepidarsystem.mobiledistribution.catalog.CatalogFilterActivity" android:theme="@style/CatalogTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/orders" android:name="com.sepidarsystem.mobiledistribution.salesdoc.list.OrderListActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/return_permits" android:name="com.sepidarsystem.mobiledistribution.salesdoc.list.ReturnListActivity"/>
+        <activity android:label="@string/setting" android:name="com.sepidarsystem.mobiledistribution.setting.GeneralSettingActivity"/>
+        <activity android:label="@string/setting" android:name="com.sepidarsystem.mobiledistribution.setting.UserSettingActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/daily_plan" android:name="com.sepidarsystem.mobiledistribution.dailyschedule.DailyScheduleActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/daily_plan" android:name="com.sepidarsystem.mobiledistribution.dailyschedule.DailyScheduleItemActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.sepidarsystem.mobiledistribution.notification.NotificationListActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/database_management" android:name="com.sepidarsystem.mobiledistribution.backup.DatabaseBackupManagementActivity"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="43e0be9fe65b62f8cf7bec4e54b88cf4b048b984"/>
+        <provider android:authorities="com.sepidarsystem.mobiledistribution.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.mapbox.mapboxsdk.plugins.places.autocomplete.ui.PlaceAutocompleteActivity" android:theme="@style/mapbox_plugins_translucent" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.mapbox.mapboxsdk.plugins.places.picker.ui.PlacePickerActivity"/>
+        <activity android:clearTaskOnLaunch="true" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="sensorLandscape" android:stateNotNeeded="true" android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.sepidarsystem.mobiledistribution.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.sepidarsystem.mobiledistribution.crashlyticsinitprovider" android:exported="false" android:initOrder="90" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.sepidarsystem.mobiledistribution.mapboxtelemetryinitprovider" android:exported="false" android:initOrder="100" android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"/>
+        <provider android:authorities="com.sepidarsystem.mobiledistribution.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+    </application>
+</manifest>
